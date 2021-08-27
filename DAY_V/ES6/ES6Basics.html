@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   console.log(x); // Error as let stops hoisting !
+      //   let x = 10;
+      if (true) {
+        let x;
+        x = 10; // block scoped variables !
+        if (true) {
+          console.log(x);
+        }
+      }
+      const PI = 3.14;
+      //   PI = 3.14333;// Error !
+
+      const product = { name: "Laptop", price: 60000 };
+      //   product.name = "Lappy"; // NOt an error
+      //   product = {}; // error !
+
+      // Spread Operator (with Arrays)
+      //   var cars = ["AUDI", "BMW", "FERRARI"];
+      //   var moreCars = ["TATA", "MAHINDRA"];
+      //   var allCars = [...cars, ...moreCars, "Merc"];
+      //   cars[0] = "Maruti";
+
+      // Spread Operator (with Objects)
+
+      //   var person = {
+      //     name: "Djokovic",
+      //     sport: "Tennis",
+      //     country: "SRB",
+      //   };
+      //   var player = { ...person, noOfGrandSlams: 20, country: "SEBERIA" };
+
+      // Destructuring - Array
+      var cars = ["AUDI", "BMW", "FERRARI"];
+      var [firstCar, , , secondCar = "Unknown"] = cars;
+
+      // Destructuring - Object
+      //   var person = {
+      //     name: "Djokovic",
+      //     sport: "Tennis",
+      //     address: { country: "SRB" },
+      //   };
+
+      //   var name, sport;
+      //   name = person.name;
+      //   sport = person.sport;
+
+      //   var {
+      //     name,
+      //     sport,
+      //     address: { country },
+      //   } = person;
+
+      //   function PrintCourseDetails({ title, duration }) {
+      //     console.log("The course " + title + " is of duration : " + duration);
+      //   }
+
+      //   var course = {
+      //     title: "VueJS",
+      //     duration: "4 Days",
+      //     price: 4000,
+      //     type: "online",
+      //   };
+      //   PrintCourseDetails(course);
+
+      // ES8
+      var person = {
+        name: "Djokovic",
+        sport: "Tennis",
+        address: { country: "SRB" },
+        isSeeded: true,
+      };
+
+      //let { name, sport, ...otherProps } = person;
+
+      // functions
+      // Default Parameters
+      //   function PrintBooks(
+      //     author = "Unknown",
+      //     title = "Unknown",
+      //     publisher = "Unknown"
+      //   ) {
+      //     console.log(author, title, publisher);
+      //   }
+      //   PrintBooks();
+      //   PrintBooks("Dr. APJ Abdul Kalam", "India 2020", "Packt");
+      //   PrintBooks("Dummy");
+      //   PrintBooks(undefined, "Dummy", "Dummy");
+
+      // Rest Parameters
+      function PrintBooks(author, ...titles) {
+        console.log(author, titles);
+      }
+
+      //   PrintBooks("Ranjit Desai", "Radhey", "Swami", "Mrtyunjay");
+      //   PrintBooks("Sachin Tendulkar", "Playing It My Way");
+      //   PrintBooks();
+
+      // Arrow Functions
+      var Add = function (x, y) {
+        return x + y;
+      };
+
+      var add = (x, y) => {
+        return x + y;
+      };
+
+      // OR
+      var Add = (x, y) => x + y;
+
+      console.log(Add(20, 40));
+
+      var Square = (x) => x * x;
+      console.log(Square(20));
+      var Msg = () => console.log("Method with no args !");
+      Msg();
+
+      var lowerCasedCars = cars.map((car) => car.toLowerCase());
+
+      function Emp() {
+        this.salary = 90000;
+        setTimeout(() => console.log(this.salary), 3000); // function gets binded at the time of creation and not invocation !
+      }
+      var emp = new Emp();
+
+      // Can't use arrow functions as constructor !
+      //   var Emp = () => {
+      //     this.sal = 80000;
+      //   };
+      //   var emp = new Emp();
+
+      // Enhanced Object Literal Syntax
+      var name = "Accenture",
+        city = "Hyderabad";
+      var company = { name: name, city: city };
+      // OR
+      var company = { name, city };
+
+      console.log("The company " + company.name + " is in " + company.city);
+      // String template literal syntax
+      console.log(`The company ${company.name} is in ${company.city}`);
+
+      var multiLineString = `First Line
+      Second Line
+      Last Line !`;
+      console.log(multiLineString   );
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var cars = ["AUDI", "BMW", "FERRARI"];
+      // OR
+      var moreCars = new Array("TATA", "HONDA");
+
+      //   for (var i in moreCars) {
+      //     console.log(moreCars[i]);
+      //   }
+
+      //   cars.forEach(function (car, index) {
+      //     console.log(index + 1 + "." + car);
+      //   });
+
+      // ES6
+      //   for (var car of cars) {
+      //     console.log(car);
+      //   }
+
+      // filter -> returns a new filtered Array
+      var filteredCars = cars.filter(function (car) {
+        return car !== "BMW";
+      });
+
+      // map -> returns a new Array (modifications)
+      var lowerCasedCars = cars.map(function (car) {
+        return car.toLowerCase();
+      });
+
+      // find() -> find an item based on a condition
+      var products = [
+        { name: "LED TV", price: 50000 },
+        { name: "LCD TV", price: 60000 },
+        { name: "OLED TV", price: 80000 },
+      ];
+
+      var theProduct = products.find(function (product) {
+        // if (product.name === "LED TV") {
+        //   return true;
+        // }
+        // return false;
+        return product.name === "LED TV";
+      });
+
+      var theIndex = products.findIndex(function (product) {
+        return product.name === "OLED TV";
+      });
+
+      // Change the array
+      cars.push("MAHINDRA");
+      console.log(cars.pop());
+
+      // slice -> returns a portion & does not change the original array !
+      var slicedProducts = products.slice(0, 2);
+
+      // splice -> changes the original array
+      //var splicedProducts = products.splice(1, 2);
+
+      var splicedProducts = products.splice(1, 0, {
+        name: "Mobile",
+        price: 25000,
+      });
+      console.log(cars.join("-"));
+
+      var arr = new Array(10);
+      arr.fill("*");
+    </script>
+  </head>
+  <body></body>
+</html>

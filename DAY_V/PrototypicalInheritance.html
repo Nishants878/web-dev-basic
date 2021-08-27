@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Car() {
+        this.name = "Audi";
+        this.speed = 200;
+        this.accelerate = function () {
+          console.log(
+            "The car " + this.name + " is running at " + this.speed + " kmph !"
+          );
+        };
+      }
+
+      function SportsCar() {
+        this.isAutomatic = true;
+      }
+
+      function JamesBondCar() {
+        this.nitroPower = true;
+      }
+
+      JamesBondCar.prototype = new Car();
+      JamesBondCar.prototype.accelerate = function () {
+        console.log(
+          "The car " +
+            this.name +
+            " is running at " +
+            this.speed +
+            " kmph , Can It use Nitro ?" +
+            this.nitroPower
+        );
+      };
+      JamesBondCar.prototype.toString = function () {
+        console.log("Name : " + this.name + ", Speed : " + this.speed);
+      };
+
+      //   JamesBondCar.prototype.car = new Car();
+      //   JamesBondCar.prototype.sportscar = new SportsCar();
+
+      var jbc = new JamesBondCar();
+      jbc.accelerate();
+      jbc.toString();
+      console.log(jbc.hasOwnProperty("name"));
+    </script>
+  </head>
+  <body></body>
+</html>

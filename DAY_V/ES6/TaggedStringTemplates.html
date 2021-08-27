@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // tagged string templates - validation,sanitize,modify
+
+      var product = { name: "Mobile", price: 80000 };
+
+      function tags(stringTags, nameExp, priceExp) {
+        let [tagOne, tagTwo, tagThree] = stringTags;
+        let currency;
+        if (priceExp > 50000) {
+          currency = "Rs.";
+        } else {
+          currency = "$.";
+        }
+        return `${tagOne}${nameExp}${tagTwo} ${currency} ${priceExp}${tagThree}`;
+      }
+      let result = tags`The product ${product.name} is of ${product.price} !`;
+      console.log(result);
+    </script>
+  </head>
+  <body>
+    Enter Name : <input type="text" id="txtName" />
+    <input type="button" onclick="SetInnerHtml()" value="Set" />
+    <div id="divTarget"></div>
+
+    <script>
+      function validateinput(stringTags, inputExp) {
+        // if inputExp.test(/</g) -> true
+        //return inputExp.replace(/</, "&lt;");
+      }
+
+      function SetInnerHtml() {
+        var divTarget = document.querySelector("#divTarget");
+        var txtName = document.querySelector("#txtName").value;
+        // divTarget.innerHTML = "You entered : " + txtName;
+        //divTarget.innerHTML = validateinput`You entered :  ${txtName}`;
+
+        divTarget.innerHTML = `<ul>
+                        <li> ${txtName} </li>
+                        <li> ${txtName} </li>
+                        <li> ${txtName} </li>
+                    </ul>
+            `;
+      }
+    </script>
+  </body>
+</html>
