@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="txtUserId"> UserId :</label>
+      <input type="text" id="txtUserId" required readonly value="1" />
+      <br />
+      <label for="txtUsername"> Username :</label>
+      <input
+        type="text"
+        id="txtUsername"
+        required
+        placeholder="Enter username"
+      />
+      <br />
+      <label for="txtPassword"> Password :</label>
+      <input
+        type="password"
+        id="txtPassword"
+        required
+        placeholder="Min length 6 chars"
+        minlength="6"
+      />
+      <br />
+      <label for="txtEmail"> Email :</label>
+      <input type="email" id="txtEmail" placeholder="name@domain.com" /><br />
+      <label for="txtDate"> DoB :</label>
+      <input type="date" id="txtDate" placeholder="Select a date.." /> <br />
+      <label for="txtDatePattern"> DoB (Pattern) :</label>
+      <input
+        type="text"
+        id="txtDatePattern"
+        placeholder="mm/dd/yyyy"
+        pattern="\d\d/\d\d/\d\d\d\d"
+      />
+      <br />
+      <label for="txtAge"> Age :</label>
+      <input
+        type="number"
+        id="txtAge"
+        placeholder="Min 18 and max 80"
+        min="18"
+        max="80"
+      />
+      <br />
+      <label for="txtColor"> Fav Color :</label>
+      <input
+        type="color"
+        id="txtColor"
+        onchange="txtUsername.style.backgroundColor=this.value"
+      />
+      <br />
+      <label for="txtRange">Salary : </label>
+      <input
+        type="range"
+        id="txtRange"
+        min="10000"
+        value="50000"
+        max="100000"
+        step="5000"
+        onchange="rangeSalaryOutput.value = this.value"
+      />
+      <output id="rangeSalaryOutput"></output>
+      <br/>
+      <label for="txtWebsiteUrl">Url : </label>
+      <input type="url" id="txtWebsiteUrl" /> <br />
+
+      <label for="txtSearch">Search : </label>
+      <input type="search" id="txtSearch" />
+      <br />
+      <label for="txtAlternateEmail">Alternate email :</label>
+      <input type="email" id="txtAlternateEmail" list="emaillist" />
+
+      <datalist id="emaillist">
+        <option value="sumeet@gmail.com">Gmail</option>
+        <option value="sumeet@hotmail.com">Hotmail</option>
+        <option value="sumeet@msn.com">MSN</option>
+      </datalist>
+      <fieldset>
+        <legend>Billing Information</legend>
+        <label for="txtHouseNo">House No:</label
+        ><input type="text" id="txtHouseNo" /> <br />
+        <label for="txtStreetNo">Street No:</label
+        ><input type="text" id="txtStreetNo" /> <br />
+        <label for="txtCity">City :</label><input type="text" id="txtCity" />
+        <br />
+      </fieldset>
+
+      Your progress : <progress value="70" max="100"></progress> <br />
+
+      Pollution Level : <meter min="10" value="90" high="70" max="100"></meter>
+
+      <!-- <input type="submit" value="Submit" /> -->
+      <br />
+      <button>Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <!-- OR -->
+    <!-- <label>Username: <input type="text" /></label> -->
+  </body>
+</html>

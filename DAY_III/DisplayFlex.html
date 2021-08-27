@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-wrap: wrap;
+
+        /* flex-direction: column; */
+
+        /* flex-direction: row-reverse;
+        flex-wrap: wrap; */
+        /* OR (flex-flow as as above two lines [flexdir , flex-wrap]) */
+        /* flex-flow: row-reverse wrap; */
+        /*justify-content: center; */ /* along the main axis (X)*/
+        /*align-items: center;*/ /* along the cross axis (Y)*/
+
+        /* justify-content: space-around; */
+        /* justify-content: space-between; */
+        justify-content: space-evenly;
+      }
+      div {
+        height: 150px;
+        width: 150px;
+        border: 1px solid red;
+        background-color: lightskyblue;
+        margin: 10px;
+        flex-grow: 1;
+      }
+      #thirdDiv {
+        /* flex-grow: 2; */
+      }
+    </style>
+  </head>
+  <body>
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div id="thirdDiv">Div 3</div>
+    <div>Div 4</div>
+    <div>Div 5</div>
+  </body>
+</html>

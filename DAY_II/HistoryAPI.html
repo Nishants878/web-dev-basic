@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script></script>
+    <style>
+      section img {
+        height: 200px;
+        width: 300px;
+        margin: 40px;
+        padding: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+      }
+
+      section img:hover {
+        cursor: pointer;
+      }
+
+      h2 {
+        margin: 40px;
+      }
+      #birdDetails {
+        margin: 40px;
+        padding: 10px;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SPA using History API</h1>
+    </header>
+    <main>
+      <article>
+        <section>
+          <img
+            src="https://cdn.britannica.com/93/146393-050-0A1E8550/rhinoceros-hornbill-forest-Borneo-island.jpg"
+            alt="Hornbill"
+          />
+          <img
+            src="https://www.adirondackcouncil.org/vs-uploads/hummingbirds/1530639157_RubyThroatedHummingbird_FI_LarryMaster.jpg"
+            alt="Humming Bird"
+          />
+          <img
+            src="https://cdn.pixabay.com/photo/2019/01/11/09/38/stern-3926734_1280.jpg"
+            alt="Stern"
+          />
+        </section>
+        <h2 id="birdName"></h2>
+        <div id="birdDetails">Bird Details here</div>
+      </article>
+    </main>
+
+    <script>
+      var birds = [
+        {
+          id: 1,
+          name: "hornbill",
+          description:
+            "Hornbills are a family of bird found in tropical and subtropical Africa, Asia and Melanesia. They are characterized by a long, down-curved bill which is frequently brightly colored and sometimes has a casque on the upper mandible. ",
+        },
+        {
+          id: 2,
+          name: "hummingbird",
+          description:
+            "Hummingbirds are birds native to the Americas and comprise the biological family Trochilidae. With about 360 species, they occur from Alaska to Tierra del Fuego, but the vast majority of the species are found in the tropics. They are small birds, with most species measuring 7.5–13 cm in length.",
+        },
+        {
+          id: 3,
+          name: "tern",
+          description:
+            "Terns are seabirds in the family Laridae that have a worldwide distribution and are normally found near the sea, rivers, or wetlands. Terns are treated as a subgroup of the family Laridae which includes gulls and skimmers and consists of eleven genera",
+        },
+      ];
+
+      var allImages = document.querySelectorAll("img");
+      for (let index = 0; index < allImages.length; index++) {
+        allImages[index].addEventListener("click", function () {
+          manageState(birds[index]);
+        });
+      }
+
+      function manageState(theBird) {
+        // add the state to the history
+        window.history.pushState(theBird, theBird.name, theBird.name);
+        var divBirdDetails = document.querySelector("#birdDetails");
+        divBirdDetails.innerHTML = theBird.description;
+        var headerBirdName = document.querySelector("#birdName");
+        headerBirdName.innerHTML = theBird.name.toUpperCase();
+      }
+
+      window.addEventListener("popstate", function (e) {
+        var divBirdDetails = document.querySelector("#birdDetails");
+        divBirdDetails.innerHTML = e.state.description;
+        var headerBirdName = document.querySelector("#birdName");
+        headerBirdName.innerHTML = e.state.name.toUpperCase();
+      });
+    </script>
+  </body>
+</html>

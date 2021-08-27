@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var book = {};
+      //   book.title = "Wings of fire !";
+      //   Object.defineProperty(book, "title", {
+      //     value: "Wings of fire !",
+      //     writable: true,
+      //     enumerable: true,
+      //   });
+      //   Object.defineProperty(book, "author", {
+      //     value: "Dr. APJ Abdul Kalam",
+      //     writable: true,
+      //     enumerable: true,
+      //   });
+
+      Object.defineProperties(book, {
+        id: {
+          value: 1,
+        },
+        title: {
+          value: "Mrtyunjay",
+          writable: true,
+          enumerable: true,
+        },
+        author: {
+          value: "Ranjit Desai",
+          writable: true,
+          enumerable: true,
+        },
+      });
+
+      for (var prop in book) {
+        console.log(prop + " : " + book[prop]);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

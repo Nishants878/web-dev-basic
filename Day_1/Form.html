@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function SubmitForm() {
+        var theForm = document.getElementById("userform");
+        // bizLogic - validation
+        theForm.submit(); // send the request to action !
+      }
+
+      function ResetForm() {
+        var ans = confirm("Are you sure ?");
+        if (ans) {
+          var theForm = document.getElementById("userform");
+          theForm.reset();
+        }
+      }
+
+      function CancelSubmit(e) {
+        var uname = document.getElementsByName("uname")[0].value;
+        if (uname === "") {
+          e.preventDefault(); /// prevents the default action of the browser !
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form
+      id="userform"
+      action="HandleForm.php"
+      method="POST"
+      onsubmit="CancelSubmit(event)"
+    >
+      Username : <input type="text" name="uname" /> <br />
+      Password : <input type="text" name="upwd" /> <br />
+      Is MCT: <input type="radio" id="rdbYes" name="isMCT" value="Yes" />
+      <label for="rdbYes">Yes</label>
+      <input type="radio" id="rdbYes" name="isMCT" value="No" />
+      <label for="rdbNo">No</label> <br />
+      <input type="submit" value="Submit" />
+      <!-- <input type="button" value="Submit" onclick="SubmitForm()" />
+      <input type="button" value="Reset" onclick="ResetForm()" /> -->
+    </form>
+  </body>
+</html>

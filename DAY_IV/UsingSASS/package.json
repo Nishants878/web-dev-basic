@@ -1,0 +1,14 @@
+{
+  "name": "usingsass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"sass sass/styles.scss css/styles.css --watch",
+    "start:summer":"sass sass/styles.scss css/styles_summertheme.css --watch"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: lightblue;
+      }
+      .responsive {
+        display: none;
+        background-color: magenta;
+      }
+
+      @media screen and (min-width: 480px) {
+        body {
+          background-color: lightslategrey;
+        }
+      }
+      @media screen and (min-width: 768px) {
+        body {
+          background-color: blue;
+        }
+        .responsive {
+          width: 100%;
+          height: 25%;
+          display: block;
+        }
+      }
+      @media screen and (min-width: 1024px) {
+        body {
+          background-color: crimson;
+        }
+      }
+      @media screen and (min-width: 1440px) {
+        body {
+          background-color: darkcyan;
+        }
+      }
+
+      /* @media screen and (orientation: landscape) {
+        body {
+          background-color: lightblue;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="responsive">Responsive Div !</div>
+    <main>This is my main content !</main>
+  </body>
+</html>

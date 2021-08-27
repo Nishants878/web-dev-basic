@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* a:link {
+        background-color: yellow;
+      } */
+
+      /* Starts with http */
+      /* a[href^="http"] {
+        background-color: yellow;
+      } */
+      /* Contains com */
+      /* a[href*="com"] {
+        background-color: yellow;
+      } */
+      a:hover {
+        border: 2px solid black;
+      }
+      a:visited {
+        color: lime;
+      }
+      a:active {
+        background-color: lightgreen;
+      }
+      a:focus {
+        border: 1px dashed blue;
+      }
+      input:disabled {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://www.google.com" target="_blank">Google !</a> <br /><a
+      href="http://www.msn.com"
+      >MSN</a
+    ><br /><a href="http://www.microsoft.com">Microsoft</a><br />
+    <a href="../DAY_II/HistoryAPI.html">HistoryAPI</a><br />
+    <a href="mailto:sumeet@gmail.com">Mail @ Gmail</a><br />
+
+    <input type="text" disabled />
+
+    <!-- <a>No Href</a> -->
+  </body>
+</html>

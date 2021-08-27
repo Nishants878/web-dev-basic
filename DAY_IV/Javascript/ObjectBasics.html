@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   "use strict";
+      //   anyVar = 10; // error !
+      //1. Object Literal Syntax
+      var player = {
+        name: "Federer",
+        sport: "Tennis",
+        isSeeded: true,
+        noOfGrandSlams: 20,
+        titleswon: ["AO", "USO", "ATP"],
+        address: {
+          country: "Switzerland",
+        },
+        printDetails: function () {
+          console.log(
+            "The player " + this.name + " lives in " + this.address.country
+          );
+        },
+      };
+
+      //   player.printDetails();
+
+      var JSONPlayer = JSON.stringify(player); // converts js object to JSON
+      console.log(JSONPlayer);
+      var jsObject = JSON.parse(JSONPlayer);
+
+      // 2. Object Contructor/Object
+
+      var company = new Object();
+      company.name = "Microsoft";
+      company.location = "Hyderabad";
+      company.printDetails = function () {
+        return "The company " + this.name + " is located at " + this.location;
+      };
+
+      //   // Arrays
+      //   var nums = [100, 200, 300];
+      //   // or
+      //   var nums = new Array(100, 200, 300);
+
+      //3. Custom Constructor
+      function Car() {
+        this.name = "BMW";
+        this.speed = 200;
+        this.accelerate = function () {
+          return (
+            "The car " + this.name + " is running at " + this.speed + " kmph !"
+          );
+        };
+      }
+      var carObj = new Car();
+      console.log(carObj.accelerate());
+
+      console.log(player.name);
+      console.log(player["name"]); // Associative array syntax !
+
+      //   for (var prop in player) {
+      //     console.log("Property : " + prop + " , Value : " + player[prop]);
+      //   }
+
+      //   with (carObj) {
+      //     console.log(name);
+      //   }
+
+      var area,
+        x,
+        y,
+        radius = 10;
+      //bad practise
+      //   with (Math) {
+      //     area = PI * radius * radius;
+      //     x = radius * cos(PI);
+      //     y = sin(PI / 2);
+      //   }
+
+      Math.PI = 3.14554444; // const
+      console.log(Math.PI);
+    </script>
+  </head>
+  <body></body>
+</html>

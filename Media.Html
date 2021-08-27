@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0px;
+      }
+      /* use classes instead */
+      header {
+        background-color: orange;
+        padding: 10px;
+        text-align: center;
+      }
+      .row {
+        display: flex;
+        height: 80%;
+      }
+      .menu ul {
+        margin: 0px;
+        padding: 0px;
+        list-style-type: none;
+      }
+      .menu li {
+        background-color: lightcoral;
+        padding: 10px;
+        border-bottom: 2px solid white;
+      }
+      .col-2 {
+        height: 100%;
+        width: 100%;
+        background-color: lightgreen;
+        text-align: center;
+      }
+      footer {
+        background-color: grey;
+        padding: 10px;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 480px) {
+        header,
+        footer {
+          display: none;
+        }
+        [class*="col"] {
+          width: 100%;
+        }
+        .row {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Sport Center</h1>
+    </header>
+    <main class="row">
+      <nav class="col-1">
+        <div class="menu">
+          <ul>
+            <li>Womens Hockey</li>
+            <li>Javelin</li>
+            <li>Table Tennis</li>
+            <li>Cricket</li>
+          </ul>
+        </div>
+      </nav>
+      <section class="col-2">
+        <article>
+          <h2>Ind vs Eng 3 <sup>rd</sup> Test</h2>
+          <p>India at a bad start at DAY 1 !</p>
+        </article>
+        <article>
+          <h2>Gold medal at Javelin</h2>
+          <p>Neeraj Chopra won the gold medal and hearts in Tokyo 2020 !</p>
+        </article>
+      </section>
+    </main>
+    <footer>@Copyright 2021</footer>
+  </body>
+</html>

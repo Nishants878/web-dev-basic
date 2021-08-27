@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .transformed {
+        height: 100px;
+        width: 100px;
+        margin: 30px;
+        border: 1px solid red;
+        background-color: lightskyblue;
+        /* transform: rotate(-30deg); */
+        /* transform: skew(30deg); */
+        /* transform: scale(1.5); */
+      }
+      .transformed:hover {
+        /* transform: scale(1.5); */
+        /* transform: translate(100px, 100px); */
+        width: 400px;
+        /* height: 200px; */
+        /* transition: width 2s, height 1s; */
+        /* OR */
+        /* transition: all 2s; */
+        transition-property: width;
+        transition-duration: 2s;
+        transition-delay: 1s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="transformed">Styled !</div>
+  </body>
+</html>
