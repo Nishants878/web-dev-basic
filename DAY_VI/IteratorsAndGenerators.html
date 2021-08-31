@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var countries = ["India", "Australia", "USA"];
+      //   var iterator = countries[Symbol.iterator]();
+      //   console.log(iterator.next());
+      //   // 100 lines of code !
+      //   console.log(iterator.next());
+      //   console.log(iterator.next());
+      //   console.log(iterator.next());
+
+      // var iterable = {
+      //   count: 0,
+      //   [Symbol.iterator]() {
+      //     var _this = this;
+      //     return {
+      //       next() {
+      //         if (_this.count < 5) {
+      //           return { value: _this.count++, done: false };
+      //         } else {
+      //           return { value: undefined, done: true };
+      //         }
+      //       },
+      //     };
+      //   },
+      // };
+
+      // for (let iterator of iterable) {
+      //   console.log(iterator);
+      // }
+
+      // var iterator = iterable[Symbol.iterator](); // associative array syntax !
+      // console.log(iterator.next());
+      // console.log(iterator.next());
+      // console.log(iterator.next());
+      // console.log(iterator.next());
+      // console.log(iterator.next());
+      // console.log(iterator.next());
+
+      // var obj = { xyz: "abc" };
+      // for (let it of obj) {
+      //   console.log(it.next());
+      // }
+
+      // let courses = {
+      //   javascript: 10,
+      //   typescript: 20,
+      //   react: 30,
+      // };
+
+      // let keys = Object.keys(courses); // ES6
+      // console.log(keys);
+      // keys.forEach((key) =>
+      //   console.log("Key : " + key + " , Value : " + courses[key])
+      // );
+
+      // ES 8 - Object.values()
+      // let values = Object.values(courses);
+      // console.log(values);
+
+      // ES8 - Object.entries()
+      //let entries = Object.entries(courses);
+      // console.log(entries);
+
+      // let theIterator = entries[Symbol.iterator]();
+      // console.log(theIterator.next().value);
+      // console.log(theIterator.next().value);
+      // console.log(theIterator.next().value);
+      // console.log(theIterator.next().value);
+
+      // Custome Iterator - courses
+
+      let courses = {
+        javascript: 10,
+        typescript: 20,
+        react: 30,
+        [Symbol.iterator]() {
+          let values = Object.values(this);
+          let index = 0;
+          return {
+            next() {
+              if (index < values.length) {
+                let value = values[index];
+                index++;
+                return { value, done: false };
+              } else {
+                return { value: "Done reading all values !", done: true };
+              }
+            },
+          };
+        },
+      };
+
+      // var itr = courses[Symbol.iterator]();
+      // console.log(itr.next());
+      // console.log(itr.next());
+      // console.log(itr.next());
+      // console.log(itr.next());
+
+      // Generator
+      // Data (Object) <= Iterator <= Generator
+
+      // function* simpleGenerator() {
+      //   console.log("Started..");
+      //   console.log("Yielding 10");
+      //   yield 10;
+      //   return "Something"; // returns and next yields do not execute ! (function has returned)
+      //   console.log("Yielding 20");
+      //   yield 20;
+      // }
+
+      // let itr = simpleGenerator();
+      // console.log(itr.next());
+      // console.log(itr.next());
+      // console.log(itr.next());
+
+      function* productIdGenerator() {
+        console.log("Started..");
+        let id = 1;
+        while (id <= 5) {
+          yield "PROD_ID_" + id++;
+        }
+      }
+
+      let itr = productIdGenerator();
+
+      // for (let i of itr) {
+      //   console.log(i);
+      // }
+
+      // console.log(itr.next().value);
+      // console.log(itr.next().value);
+      // console.log(itr.next().value);
+      // console.log(itr.next().value);
+      // console.log(itr.next().value);
+      // console.log(itr.next().value);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -87,6 +87,7 @@
       }
 
       function manageState(theBird) {
+        console.log(theBird)
         // add the state to the history
         window.history.pushState(theBird, theBird.name, theBird.name);
         var divBirdDetails = document.querySelector("#birdDetails");
