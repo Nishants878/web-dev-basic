@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+      integrity="sha512-F7WyTLiiiPqvu2pGumDR15med0MDkUIo5VTVyyfECR5DZmCnDhti9q5VID02ItWjq6fvDfMaBaDl2J3WdL1uxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script>
+      async function LoadPosts() {
+        try {
+          let response = await fetch(
+            "https://jsonplaceholder.typicode.com/posts"
+          );
+          let allPosts = await response.json();
+          var theList = document.querySelector("#thePostList");
+          for (const post of allPosts) {
+            let newLi = document.createElement("li");
+            newLi.innerText = post.title;
+            newLi.className = "list-group-item";
+            theList.appendChild(newLi);
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    </script>
+  </head>
+  <body class="container">
+    <input
+      type="button"
+      value="Click Me !"
+      onclick="console.log('U clicked !')"
+    />
+
+    <input type="button" value="Get All Posts !" onclick="LoadPosts()" />
+
+    <h1 class="header">All Posts</h1>
+    <ul id="thePostList" class="list-group"></ul>
+  </body>
+</html>

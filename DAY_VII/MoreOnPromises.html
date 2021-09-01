@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   new Promise((resolve, reject) => {
+      //     console.log("Started..");
+      //     resolve();
+      //   })
+      //     .then(() => {
+      //       console.log("Promise Resolved !");
+      //       throw new Error("Something went wrong !");
+      //     })
+      //     .catch((err) => console.warn(err))
+      //     // .then(() => console.log("Always executed !"));
+      //     .finally(() => console.log("Always executed !"));
+
+      let promise1 = new Promise((resolve, reject) =>
+        setTimeout(() => resolve("First Promise Resolved"), 1000)
+      );
+      let promise2 = new Promise((resolve, reject) =>
+        setTimeout(() => resolve("Second Promise Resolved"), 200)
+      );
+      let promise3 = new Promise((resolve, reject) =>
+        setTimeout(() => resolve("Third Promise Resolved"), 500)
+      );
+
+      //   let allPromises = Promise.all([promise1, promise2, promise3]);
+      //   allPromises
+      //     .then((values) => console.log(values))
+      //     .catch((err) => console.warn(err));
+
+      Promise.race([promise1, promise2]).then((value) => console.log(value));
+    </script>
+  </head>
+  <body></body>
+</html>

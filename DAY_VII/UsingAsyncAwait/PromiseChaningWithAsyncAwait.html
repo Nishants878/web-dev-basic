@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      async function LoadData() {
+        try {
+          const posts = await makeRequest(
+            "https://jsonplaceholder.typicode.com/posts"
+          );
+
+          console.log(posts);
+
+          const thePost = await makeRequest(
+            "https://jsonplaceholder.typicode.com/posts/" + posts[10].id
+          );
+          console.log(thePost);
+
+          //   throw new Error("Something went wrong !");
+
+          const theUser = await makeRequest(
+            "https://jsonplaceholder.typicode.com/users/" + thePost.userId
+          );
+          console.log(theUser);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      async function makeRequest(url) {
+        const res = await fetch(url);
+        const data = await res.json();
+        return data;
+      }
+
+      LoadData();
+    </script>
+  </head>
+  <body></body>
+</html>

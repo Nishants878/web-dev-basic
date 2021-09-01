@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function* httpSteps() {
+        let posts = yield makeRequest(
+          "https://jsonplaceholder.typicode.com/posts"
+        );
+        console.log("The Posts : ", posts);
+
+        let thePost = yield makeRequest(
+          "https://jsonplaceholder.typicode.com/posts/" + posts[14].id
+        );
+        console.log("The Post : ", thePost);
+
+        let theUser = yield makeRequest(
+          "https://jsonplaceholder.typicode.com/users/" + thePost.userId
+        );
+
+        console.log("The User : ", theUser);
+      }
+      function makeRequest(url) {
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => iterator.next(data));
+      }
+
+      let iterator = httpSteps();
+      iterator.next();
+    </script>
+  </head>
+  <body></body>
+</html>
