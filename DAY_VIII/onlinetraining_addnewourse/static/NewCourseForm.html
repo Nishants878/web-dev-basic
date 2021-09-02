@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+    />
+
+    <script>
+      function AddNewCourseHandler(e) {
+        let id = document.querySelector("#txtCourseId").value;
+        let title = document.querySelector("#txtCourseName").value;
+        let price = document.querySelector("#txtCoursePrice").value;
+        let rating = document.querySelector("#txtCourseRating").value;
+        let likes = document.querySelector("#txtCourseLikes").value;
+        let imageUrl = document.querySelector("#txtCourseImage").value;
+        // FormData()
+        fetch("/newcourse", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id,
+            title,
+            price,
+            likes,
+            rating,
+            imageUrl,
+          }),
+        })
+          .then((res) => res.json())
+          .then((response) => {
+            if (response.msg === "success") {
+              alert("Course added successfully !");
+              window.location.href = "/"; // if an SPA then do not reload the page but create a newCourse and append to the list in UI
+            }
+            console.log(response);
+          });
+        //e.preventDefault(); // stop from submitting the form sync
+      }
+    </script>
+  </head>
+  <body class="container">
+    <h1>New Course</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Online Training</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/NewCourseForm.html">New Course</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <form class="col-md-4">
+      <label for="txtCourseId">Id : </label
+      ><input type="text" class="form-control" id="txtCourseId" />
+
+      <label for="txtCourseName">Name : </label
+      ><input
+        type="text"
+        required
+        placeholder="CourseName required.."
+        class="form-control"
+        id="txtCourseName"
+      />
+
+      <label for="txtCoursePrice">Price : </label
+      ><input type="number" class="form-control" id="txtCoursePrice" />
+
+      <label for="txtCourseRating">Rating : </label
+      ><input type="number" class="form-control" id="txtCourseRating" />
+
+      <label for="txtCourseLikes">Likes : </label
+      ><input type="number" class="form-control" id="txtCourseLikes" />
+
+      <label for="txtCourseImage">Image URL : </label
+      ><input type="text" class="form-control" id="txtCourseImage" />
+
+      <input
+        type="button"
+        value="Add Course"
+        class="btn btn-success my-2"
+        onclick="AddNewCourseHandler()"
+      />
+    </form>
+  </body>
+</html>

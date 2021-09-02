@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      class Webinar {
+        participants = [];
+        subscribe(theParticipant) {
+          // add particpant to participants array !
+          // id item already exists ! do not add !
+          this.participants.push(theParticipant);
+        }
+
+        unsubscribe(theParticipant) {
+          // remove particpant from participants array !
+          this.participants = this.participants.filter(
+            (item) => item.id != theParticipant.id
+          );
+        }
+
+        execute(webinarDetails) {
+          for (const eachParticipant of this.participants) {
+            if (eachParticipant.paid) {
+              eachParticipant.Handler(webinarDetails);
+            } else {
+              eachParticipant.Error(
+                "Since you did not pay for the event, You are not eligible !"
+              );
+            }
+          }
+        }
+      }
+
+      class Participant {
+        constructor(id, name, paid) {
+          this.id = id;
+          this.name = name;
+          this.paid = paid;
+        }
+
+        Handler(eventDetails) {
+          console.log(`Welcome ${this.name} ! ${eventDetails}`);
+        }
+
+        Error(err) {
+          console.log("Hey " + this.name + " " + err);
+        }
+      }
+
+      let p1 = new Participant(1, "Aniket", true);
+      let p2 = new Participant(2, "Amit", true);
+      let p3 = new Participant(3, "Aniruddha", false);
+
+      var jsWebinar = new Webinar();
+      jsWebinar.subscribe(p1);
+      jsWebinar.subscribe(p2);
+      jsWebinar.subscribe(p3);
+
+      //   jsWebinar.unsubscribe(p1);
+
+      jsWebinar.execute("This is a javascript webinar !");
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function Fulltime() {
+        this.salary = 100000;
+      }
+      function Contractor() {
+        this.salary = 70000;
+      }
+      function PartTime() {
+        this.dailyWages = 7000;
+      }
+      function Freelancer() {
+        this.hourlyWages = 700;
+      }
+
+      function EmployeeFactory() {
+        this.createEmployee = function (type) {
+          let emp;
+
+          if (type === "fulltime") {
+            emp = new Fulltime();
+          } else if (type === "parttime") {
+            emp = new PartTime();
+          } else if (type === "contractor") {
+            emp = new Contractor();
+          } else if (type === "freelancer") {
+            emp = new Freelancer();
+          }
+          emp.type = type;
+          return emp;
+        };
+      }
+
+      var empFactory = new EmployeeFactory();
+      let emp1 = empFactory.createEmployee("fulltime");
+      let emp2 = empFactory.createEmployee("contractor");
+    </script>
+  </head>
+  <body>
+
+    <input type="button" value="sdsd" onclick="">
+
+
+  </body>
+</html>

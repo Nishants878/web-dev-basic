@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   var singleTon = { name: "SingleTon" };
+
+      var singleton = (function () {
+        let instance;
+        function init() {
+          return {
+            name: "Vue",
+            rating: 5,
+          };
+        }
+        return {
+          getInstance: function () {
+            if (!instance) {
+              instance = init();
+            }
+            return instance;
+          },
+        };
+      })();
+
+      let course1 = singleton().getInstance();
+      course1.name = "VueJS";
+      let course2 = singleton.getInstance();
+
+      //   function CreateInstance() {
+      //     return {
+      //       name: "React",
+      //       rating: 4,
+      //     };
+      //   }
+
+      //   let c1 = CreateInstance();
+      //   c1.name = "ReactJS";
+      //   let c2 = CreateInstance();
+    </script>
+  </head>
+  <body></body>
+</html>

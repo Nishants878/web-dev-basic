@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //Exponential Operator (ES7)
+      console.log(3 ** 3);
+
+      // Array.includes() (ES7)
+      //   let numArray = [10, 20, 30, 40];
+      //   console.log(numArray.includes(20));
+
+      //Array.reduce() (ES7)
+      let numArray = [10, 20, 30, 40];
+      let reducerFunction = (sum, currValue) => {
+        return sum + currValue;
+      };
+      console.log(numArray.reduce(reducerFunction));
+
+      // ES8 - trailing commas
+      function add(x, y) {
+        console.log("Extra commas");
+      }
+
+      var o = { title: "US open" };
+
+      // ES8 - String Padding
+      let str = "Javascript";
+      //   console.log(str.padStart(12, "-"));
+      console.log(str.padEnd(12, "!"));
+
+      // Reduce with objects
+
+      let salary = {
+        basic: 50000,
+        ta: 10000,
+        da: 8000,
+        hra: 5000,
+      };
+      console.log(
+        Object.values(salary).reduce((totalSal, val) => totalSal + val)
+      );
+
+      console.log(Object.getOwnPropertyDescriptors(salary));
+
+      // Array.from
+
+      function addAll() {
+        let inputNums = Array.from(arguments);
+        return inputNums.reduce((sum, val) => sum + val);
+      }
+      console.log(addAll(10, 20, 30, 40));
+    </script>
+  </head>
+  <body>
+    <div>Div 1</div>
+    <div>Div 2</div>
+    <div>Div 3</div>
+
+    <script>
+      let allDivs = document.querySelectorAll("div");
+      console.log(allDivs);
+
+      let divsArray = Array.from(allDivs);
+    </script>
+  </body>
+</html>
